@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Night Shift Chrome Extension",
+  "version": "1.0",
+  "description": "Adds day and night modes to Chrome with warm and cold filters.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_globs": [
+        "chrome-extension://*/*",
+        "chrome://*/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
